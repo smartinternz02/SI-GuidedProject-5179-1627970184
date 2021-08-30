@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Bank dataset</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.login{
+top: 20%; left:45%;
+
+}
+
+</style>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Bank Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="/y_predict"method="POST">
+
+    <select name = 'job' required="required">
+    <option value="">Select Job </option>
+    <option value = "admin.">admin </option>
+    <option value = "blue-collar"> blue-collar </option>
+    <option value = "entrepreneur">entrepreneur </option>
+    <option value = "housemaid"> housemaid </option>
+    <option value = "management"> management </option>
+    <option value = "retired">retired </option>
+    <option value = "self-employed">self-employed </option>
+    <option value = "services"> services </option>
+    <option value = "student">student </option>
+    <option value = "technician">technician </option>
+    <option value = "unemployed"> unemployed</option>
+    <option value = "unknown">unknown </option>
+    </select>
+    
+
+  
+     
+    <select name = 'marital' required="required">
+    <option value="">Select marital </option>
+    <option value = "divorced">divorced </option>
+    <option value = "married"> married </option>
+    <option value = "single">single</option>
+    </select><br>
+    
+    
+     
+    <select name = 'education' required="required">
+    <option value="">Select education </option>
+    <option value = "primary">primary </option>
+    <option value = "secondary"> secondary </option>
+    <option value = "tertiary">tertiary</option>
+    <option value = "unknown">unknown</option>
+    </select>
+    
+    
+     
+    <select name = 'default' required="required">
+    <option value="">Select default </option>
+    <option value = "no">no </option>
+    <option value = "yes">yes</option>
+    
+    </select><br>
+
+   
+     
+    <select name = 'housing' required="required">
+    <option value="">Select housing </option>
+    <option value = "no">no </option>
+    <option value = "yes">yes</option>
+    
+    </select>
+ 
+     
+    <select name = 'loan' required="required">
+    <option value="">Select loan </option>
+    <option value = "no">no </option>
+    <option value = "yes">yes</option>
+    
+    </select><br>
+  
+    
+     
+    <select name = 'contact' required="required">
+    <option value="">Select contact </option>
+    <option value = "cellular">cellular </option>
+    <option value = "telephone"> telephone </option>
+    <option value = "unknown">unknown</option>
+    </select>
+
+    <select name = 'month' required="required">
+    <option value="">Select month </option>
+    <option value = "jan">jan </option>
+    <option value = "feb"> feb </option>
+    <option value = "mar">mar</option>
+    <option value = "apr">apr</option>
+    <option value = "may">may </option>
+    <option value = "jun"> jun </option>
+    <option value = "jul">jul</option>
+    <option value = "aug">aug</option>
+    <option value = "sep">sep </option>
+    <option value = "oct">oct </option>
+    <option value = "nov">nov</option>
+    <option value = "dec">dec</option>
+   
+    </select>
+
+
+    <select name = 'poutcome' required="required">
+    <option value="">Select poutcome </option>
+    <option value = "failure">failure </option>
+    <option value = "success">success </option>
+    <option value = "other">other </option>
+    <option value = "unknown">unknown</option>
+    </select><br>
+    
+    <input type="text" name="age" placeholder="age" required="required" />
+    <input type="text" name="balance" placeholder="balance" required="required" />
+    <input type="text" name="day" placeholder="day" required="required" />
+    <input type="text" name="duration" placeholder="duration" required="required" />
+    <input type="text" name="campaign" placeholder="campaign" required="required" />    
+    <input type="text" name="pdays" placeholder="pdays" required="required" />
+    <input type="text" name="previous" placeholder="previous" required="required" />
+
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
+
